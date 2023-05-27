@@ -33,7 +33,7 @@ function App() {
 
   return (
     <div className="App">
-      <body className="page">
+      <div className="page">
         <Header />
         <Main
           onEditAvatar ={handleEditAvatarClick}
@@ -42,61 +42,43 @@ function App() {
           onCardClick  ={handleCardClick}
         />
         <Footer />
-        <PopupWithForm
-          name='edit-profile'
-          title='Редактировать профиль'
-          children={
-            <>
-              <label className="popup__label">
-                <input className="popup__input-field" name="name-input"   type="text" placeholder="Имя"
-                  minlength="2" maxlength="40" required />
-                <span className="popup__input-error"></span>
-              </label>
-              <label className="popup__label">
-                <input className="popup__input-field" name="career-input" type="text" placeholder="Род занятий"
-                  minlength="2" maxlength="200" required />
-                <span className="popup__input-error"></span>
-              </label>
-            </>
-          }
-          isOpen={isEditProfilePopupOpen}
-          onClose={closeAllPopups}
-        />
-        <PopupWithForm
-          name='add-photo'
-          title='Новое место'
-          children={
-            <>
-              <label className="popup__label">
-                <input className="popup__input-field"   name="place-input"    type="text" placeholder="Назовите место"
-                  minlength="2" maxlength="30" required />
-                <span className="popup__input-error"></span>
-              </label>
-              <label className="popup__label">
-                <input className="popup__input-field"   name="urlImage-input" type="url"
-                  placeholder="Вставьте ссылку на фото места" required />
-                <span className="popup__input-error"></span>
-              </label>
-            </>
-          }
-          isOpen={isAddPlacePopupOpen}
-          onClose={closeAllPopups}
-        />
-        <PopupWithForm
-          name='change-avatar'
-          title='Обновить аватар'
-          children={
-            <>
-              <label className="popup__label">
-                <input className="popup__input-field"   name="urlAvatar-input" type="url"
-                  placeholder="Вставьте ссылку на новый аватар" required />
-                <span className="popup__input-error"></span>
-              </label>
-            </>
-          }
-          isOpen={isEditAvatarPopupOpen}
-          onClose={closeAllPopups}
-        />
+        <PopupWithForm name='edit-profile' title='Редактировать профиль' isOpen={isEditProfilePopupOpen}
+          onClose={closeAllPopups} buttonText = 'Сохранить'>
+          <label className="popup__label">
+            <input className="popup__input-field" name="name-input"   type="text" placeholder="Имя"
+              minLength="2" maxLength="40" required />
+            <span className="popup__input-error"></span>
+          </label>
+          <label className="popup__label">
+            <input className="popup__input-field" name="career-input" type="text" placeholder="Род занятий"
+              minLength="2" maxLength="200" required />
+            <span className="popup__input-error"></span>
+          </label>
+        </PopupWithForm>
+
+        <PopupWithForm name='add-photo' title='Новое место' isOpen={isAddPlacePopupOpen}
+          onClose={closeAllPopups} buttonText = 'Добавить'>
+          <label className="popup__label">
+            <input className="popup__input-field"   name="place-input"    type="text" placeholder="Назовите место"
+              minLength="2" maxLength="30" required />
+            <span className="popup__input-error"></span>
+          </label>
+          <label className="popup__label">
+            <input className="popup__input-field"   name="urlImage-input" type="url"
+              placeholder="Вставьте ссылку на фото места" required />
+            <span className="popup__input-error"></span>
+          </label>
+        </PopupWithForm>
+
+        <PopupWithForm name='change-avatar' title='Обновить аватар' isOpen={isEditAvatarPopupOpen}
+          onClose={closeAllPopups} buttonText = 'Сохранить'>
+          <label className="popup__label">
+            <input className="popup__input-field"   name="urlAvatar-input" type="url"
+              placeholder="Вставьте ссылку на новый аватар" required />
+            <span className="popup__input-error"></span>
+          </label>
+        </PopupWithForm>
+
         <ImagePopup
           card={selectedCard}
           onClose={closeAllPopups}
@@ -104,8 +86,9 @@ function App() {
         <PopupWithForm
           name='remove-card'
           title='Вы уверены?'
+          buttonText = 'Да'
         />
-      </body>
+      </div>
     </div>
   );
 }

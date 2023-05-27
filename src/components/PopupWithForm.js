@@ -1,13 +1,13 @@
-function PopupWithForm({ name, title, children, isOpen, onClose }) {
+function PopupWithForm({ name, title, children, isOpen, onClose, buttonText }) {
   return (
     <div className={`popup popup_type_${name} ${isOpen && 'popup_opened'}`}>
       <div className="popup__container">
         <button className="popup__button-close" type="button" aria-label="Закрыть форму" onClick={onClose}></button>
         <h2 className="popup__title">{`${title}`}</h2>
-        <form className="popup__form" name={`main-form-${name}`} novalidate>
+        <form className="popup__form" name={`main-form-${name}`} noValidate>
           <fieldset className="popup__set">
             {children}
-            <button className="popup__submit" type="submit" aria-label="Подтвердить">Сохранить</button>
+            <button className="popup__submit" type="submit" aria-label={buttonText}>{buttonText}</button>
           </fieldset>
         </form>
       </div>

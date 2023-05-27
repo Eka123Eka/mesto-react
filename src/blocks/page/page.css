@@ -1,5 +1,4 @@
 .page {
-  max-width: 1280px;
   margin: 0 auto;
   background-color: #000000;
   color: white;
@@ -8,17 +7,5 @@
   -moz-text-size-adjust: 100%;
   -ms-text-size-adjust: 100%;
   text-size-adjust: 100%;
-}
-
-@media screen and (max-width: 920px) {
-  .page{
-    max-width: 95%;
-  }
-}
-
-@media screen and (max-width: 350px) {
-  .page{
-    max-width: 320px;
-  }
 }
 
