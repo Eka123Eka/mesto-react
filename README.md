@@ -22,6 +22,3 @@
 ### Инструкция по эксплуатации:
 1. Проект учебный, предназначен для практики портирования на React
 
-### Ссылка на выложенный проект
-[https://eka123eka.github.io/mesto-react-eka/](https://eka123eka.github.io/mesto-react-eka/)
-
