@@ -11,18 +11,20 @@ class Api {
     return fetch(`${this._baseUrl}/cards`, { headers: this._headers })
       .then(res => this._checkResponse(res, `getInitialCards - `))
   }
-  sendUserInfo( dataUser ) {
+  sendUserInfo(dataUser) {
     return fetch(`${this._baseUrl}/users/me`, {
       headers: this._headers,
       method: 'PATCH',
-      body: JSON.stringify(dataUser)})
+      body: JSON.stringify(dataUser)
+    })
       .then(res => this._checkResponse(res, `PATCH ${dataUser.name}, ${dataUser.about} - `))
   }
-  addNewCardServer( dataCard ) {
+  addNewCardServer(dataCard) {
     return fetch(`${this._baseUrl}/cards`, {
       headers: this._headers,
       method: 'POST',
-      body: JSON.stringify(dataCard)})
+      body: JSON.stringify(dataCard)
+    })
       .then(res => this._checkResponse(res, `POST ${dataCard.link} - `))
   }
   deleteCardServer(idCard) {
@@ -43,7 +45,8 @@ class Api {
     return fetch(`${this._baseUrl}/users/me/avatar`, {
       headers: this._headers,
       method: 'PATCH',
-      body: JSON.stringify({ avatar: urlAvatar })})
+      body: JSON.stringify({ avatar: urlAvatar })
+    })
       .then(res => this._checkResponse(res, `PATCH Avatar ${urlAvatar} - `))
   }
   _checkResponse(res, sourceError) {
