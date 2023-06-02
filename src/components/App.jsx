@@ -57,9 +57,8 @@ function App() {
   function handleCardLike(currentCard) {
     const isLiked = [...currentCard.likes].some(i => i._id === currentUser._id);
     api.toogleLikeServer(currentCard._id, isLiked)
-      .then((newCard) => {
-        setCards((state) => state.map((c) => c._id === currentCard._id ? newCard : c));
-      });
+      .then((newCard) => setCards((state) => state.map((c) => c._id === currentCard._id ? newCard : c)))
+      .catch((err) => console.log(err))
   }
 
   function handleCardDelete(currentCard) {

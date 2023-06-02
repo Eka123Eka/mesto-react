@@ -7,9 +7,6 @@ function AddPlacePopup({ isOpen, onClose, onAddPlace }) {
 
   useEffect(() => {
     nameRef.current.value = ''
-  }, [isOpen]);
-
-  useEffect(() => {
     linkRef.current.value = ''
   }, [isOpen]);
 
